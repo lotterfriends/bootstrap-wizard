@@ -6,7 +6,7 @@ Simple Wizard for Twitter Bootstrap
 
 Minimal Markdown
 -------------
-```
+```html
 <div class="wizard">
   <fieldset data-step="1">
     <legend>1. Step</legend>
@@ -32,7 +32,7 @@ Minimal Markdown
 
 Load
 -------------
-```
+```javascript
 $(document).ready(function() {
   $('.wizard').wizard();
 });
