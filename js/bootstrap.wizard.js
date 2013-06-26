@@ -5,11 +5,13 @@
 		var settings = $.extend({
 			defaultTitle : 'Step',
 			nextClass: 'next',
-			prevClass: 'prev',
+			prevClass: 'previews',
 			jumperClass: 'jump'
 		}, options );
 
-		this.data('wizard', new Wizard(this, settings));
+		this.each(function() {
+			$(this).data('wizard', new Wizard(this, settings));
+		});
 		return this;
 	}
 
@@ -68,7 +70,8 @@
 			}
 			_this.$breadcrumb.append($li);				
 		});
-		this.$breadcrumb.insertBefore($fieldsets.first());
+		$fieldsets.hide();
+		this.$breadcrumb.insertBefore($fieldsets.first().show());
 	};
 
 	Wizard.prototype.showFieldset = function($oldFieldset, $newFieldset) {
