@@ -6,15 +6,24 @@
   <meta name="description" content="">
   <meta name="author" content="">
   <link href="./css/bootstrap.css" rel="stylesheet">
+  <style type="text/css">
+  /* Prevent Page-Jumping */
+  .wizard fieldset {
+    display:none;
+  }
+  .wizard fieldset:first-of-type {
+    display:block;
+  }
+  </style>
 </head>
 <body>    
   <div class="container">
     <div id ="content">
-      <form class="wizard form-horizontal" method="post" action="/test">
+      <form class="wizard form-horizontal" method="post" action="#">
 
         <h2>Wizard</h2>
 
-        <fieldset data-step="1">
+        <fieldset>
           <legend>1. Form</legend>
             <div class="control-group">
               <label class="control-label" for="inputName">Name</label>
@@ -56,7 +65,7 @@
             </div>
           </fieldset>
 
-          <fieldset data-step="2">
+          <fieldset>
             <legend>2. Form</legend>
             <div class="control-group">
               <label class="control-label" for="inputEmail">E-Mail</label>
@@ -98,7 +107,7 @@
             </div>
           </fieldset>
 
-          <fieldset data-step="3">
+          <fieldset>
             <legend>3. Form</legend>
             <div class="control-group">
               <label class="control-label" for="inputTime">Time</label>
@@ -140,7 +149,7 @@
             </div>
           </fieldset>
 
-          <fieldset data-step="4">
+          <fieldset>
             <legend>4. Form</legend>
             <div class="control-group">
               <label class="control-label" for="inputPlace">Lokal</label>
@@ -182,7 +191,7 @@
             </div>
           </fieldset>
 
-          <fieldset data-step="5">
+          <fieldset>
             <legend>5. Form</legend>
             <div class="control-group">
               <label class="control-label" for="inputEmail">E-Mail</label>
@@ -204,6 +213,23 @@
   <script type="text/javascript" src="./js/bootstrap.wizard.js"></script>
   <script type="text/javascript">
     $(document).ready(function() {
+      $('fieldset:first').data('validation', isNameValid);
+
+      function isNameValid($fieldset) {
+        var $name = $('input[name=name]', $fieldset);
+        if ($.trim($name.val()) == "" || $.trim($name.val()).length < 4 || $.trim($name.val()).length > 30) {
+          if ($name.closest('.control-group').hasClass('error')) return false;
+          $name.closest('.control-group').addClass('error');
+          var $appendTo = $name.parent();
+          if ($appendTo.is('.input-append')) $appendTo = $appendTo.parent();
+          $('<span class="help-inline">The name is to short. At least 4 characters, maximum 30.</span>').appendTo($appendTo);
+          return false;
+        }
+        $name.closest('.control-group').removeClass('error');
+        $('.help-inline', $name.parent()).remove();
+        return true;
+      }
+
       $('.wizard').wizard();
     });
   </script>

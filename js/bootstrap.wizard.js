@@ -24,12 +24,19 @@
 
 	Wizard.prototype.initEvents = function() {
 		var _this = this;
-
 		this.$wizard.on('click', '.' + this.settings.nextClass, function(e) {
 			e.stopPropagation();
 			var $fieldset = $(this).closest('fieldset'),
-			$nextFieldset = $fieldset.next('fieldset');
-			_this.showFieldset($fieldset, $nextFieldset);
+				validation = $fieldset.data('validation');
+			if (validation) {
+				if (validation($fieldset)) {
+					$nextFieldset = $fieldset.next('fieldset');
+					_this.showFieldset($fieldset, $nextFieldset);
+				}
+			} else  {
+				$nextFieldset = $fieldset.next('fieldset');
+				_this.showFieldset($fieldset, $nextFieldset);
+			}
 			return false;
 		});	
 
@@ -44,7 +51,7 @@
 		this.$wizard.on('click', 'a.' + this.settings.jumperClass, function(e) {
 			var step = this.href.split('#')[1];
 			e.stopPropagation();
-			_this.showFieldset($('fieldset:visible'), $('fieldset[data-step='+step+']'));
+			_this.showFieldset($('fieldset:visible'), $('fieldset:eq('+step+')'));
 			return false;
 		});
 
@@ -57,13 +64,12 @@
 		$fieldsets.each(function(i) {
 			var $fieldset = $(this);
 			var $li =  $(document.createElement('li'));
-			$li.get(0).setAttribute('data-step', $fieldset.data('step'));
 			if (i == 0) $li.addClass('active');
 			var $value =  $(document.createElement('span')).addClass('value');
 			if ($fieldset.find('legend').length) $value.text($fieldset.find('legend').text());
-			else $value.text($fieldset.data('step') + '. ' + _this.settings.defaultTitle);
+			else $value.text((i + 1) + '. ' + _this.settings.defaultTitle);
 			$li.append($value);
-			if (i < $fieldsets.length -1 ) {
+			if (i < $fieldsets.length - 1 ) {
 				var $divider =  $(document.createElement('span')).addClass('divider');
 				$divider.append($(document.createElement('i')).addClass('icon-play'));
 				$li.append($divider);
@@ -77,18 +83,18 @@
 	Wizard.prototype.showFieldset = function($oldFieldset, $newFieldset) {
 		var _this = this;
 		$oldFieldset.hide().trigger('hide');
-		$newFieldset.show().trigger('show');
+		$newFieldset.show().trigger('show');		
 		$('li.active', _this.$breadcrumb).removeClass('active').trigger('deactivate');
-		$('li[data-step='+ $newFieldset.data('step') +']', _this.$breadcrumb).addClass('active').trigger('activate');
+		$('li', _this.$breadcrumb).eq($('fieldset').index($newFieldset)).addClass('active').trigger('activate');
 		$('li:not(.active)', _this.$breadcrumb).each(function() {
 			var $this = $(this);
-			if ($this.attr('data-step') > $newFieldset.data('step')) {
+			if ($this.index() > $('fieldset').index($newFieldset)) {
 				$('.value', $(this)).html($(this).text());	
 				return true;
 			}
 			var link = $(document.createElement('a'))
 				.addClass(_this.settings.jumperClass)
-				.prop('href', '#' + $this.attr('data-step'))
+				.prop('href', '#' + $this.index())
 				.append($('.value', $this).text());
 			$('.value', $this).html(link);
 		});

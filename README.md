@@ -1,26 +1,25 @@
-bootstrap-wizard
+# bootstrap-wizard
 ================
 
 Simple Wizard for Twitter Bootstrap
 
 
-Minimal Markdown
--------------
+## Minimal Markdown
 ```html
 <div class="wizard">
-  <fieldset data-step="1">
+  <fieldset>
     <legend>1. Step</legend>
     Content Step 1
     <button>cancel</button>
     <button class="next">next</button>
   </fieldset>
-  <fieldset data-step="2">
+  <fieldset>
     <legend>2. Step</legend>
     Content Step 2
     <button class="previews">previews</button>
     <button class="next">next</button>
   </fieldset>
-  <fieldset data-step="2">
+  <fieldset>
     <legend>3. Step</legend>
     Content Step 3
     <button class="previews">previews</button>
@@ -30,37 +29,45 @@ Minimal Markdown
 ```
 
 
-Load
--------------
+## Load
 ```javascript
 $(document).ready(function() {
   $('.wizard').wizard();
 });
 ```
 
-Options
-------------
+## Options
 - defaultTitle : Text in the Breadcrumb if no Legend-Tag is set (Default: "Step")
 - nextClass: CSS-Class for the nextbutton (Default: "next")
 - prevClass: CSS-Class for the previewsbutton (Default : "previews")
 - jumperClass: CSS-Class for the Link in the Breadcrumb (Default: "jump")
 
-Events
-------------
+## Events
 ```javascript
 $('.wizard fieldset').on('show');
 $('.wizard fieldset').on('hide');
 $('.wizard .breadcrumb li').on('activate');
 $('.wizard .breadcrumb li').on('deactivate');
 ```
-
+## Validation
+You can bind Step Validation Functions via the Data-Attribute to fieldsets.
+```javascript
+$('fieldset#id1').data('validation', function($fieldset) {
+  var $field = $fieldset.find('input:first');
+  if ($field.val() != "") return true;
+  return false;
+});
+```
 
 Preview
 ---------
-
 ![My image](http://farm4.staticflickr.com/3677/9145638577_c6f97a9e6b.jpg)
 
+---
 
+You can find a extended example in **example.html**.
+
+---
 
 ## License
 
