@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Wizard</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link href="./css/bootstrap.css" rel="stylesheet">
+</head>
+<body>    
+  <div class="container">
+    <div id ="content">
+      <form class="wizard form-horizontal" method="post" action="/test">
+
+        <h2>Wizard</h2>
+
+        <fieldset data-step="1">
+          <legend>1. Form</legend>
+            <div class="control-group">
+              <label class="control-label" for="inputName">Name</label>
+              <div class="controls">
+                <input type="text" id="inputName" name="name" placeholder="Name">
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label" for="inputEmail">E-Mail</label>
+              <div class="controls">
+                <input type="text" id="inputEmail" name="email" placeholder="E-Mail Adresse">
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label" for="inputDatum">Date</label>
+              <div class="controls">
+                <div class="input-append date datepicker only-date"  >
+                  <input name="date" value="03.07.2013" type="text" id="inputDate" placeholder="Date">
+                </div>
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label" for="inputTime">Time</label>
+              <div class="controls">
+                <div class="input-append date datepicker only-time"  >
+                  <input name="time" value="12:00" type="text" id="inputTime" placeholder="Time">
+                </div>
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label" for="inputPlace">Lokal</label>
+              <div class="controls">
+                <input type="text" id="inputPlace" name="locale" placeholder="Lokal">
+              </div>
+            </div>
+            <div class="form-actions">
+              <button type="submit" name="cancel" value="cancel" class="btn">Cancel</button>
+              <button class="btn btn-primary next">next</button>
+            </div>
+          </fieldset>
+
+          <fieldset data-step="2">
+            <legend>2. Form</legend>
+            <div class="control-group">
+              <label class="control-label" for="inputEmail">E-Mail</label>
+              <div class="controls">
+                <input type="text" id="inputEmail" name="email" placeholder="E-Mail Adresse">
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label" for="inputDatum">Date</label>
+              <div class="controls">
+                <div class="input-append date datepicker only-date"  >
+                  <input name="date" value="03.07.2013" type="text" id="inputDate" placeholder="Date">
+                </div>
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label" for="inputTime">Time</label>
+              <div class="controls">
+                <div class="input-append date datepicker only-time"  >
+                  <input name="time" value="12:00" type="text" id="inputTime" placeholder="Time">
+                </div>
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label" for="inputName">Name</label>
+              <div class="controls">
+                <input type="text" id="inputName" name="name" placeholder="Name">
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label" for="inputPlace">Lokal</label>
+              <div class="controls">
+                <input type="text" id="inputPlace" name="locale" placeholder="Lokal">
+              </div>
+            </div>
+            <div class="form-actions">
+              <button class="previews btn">previews</button>
+              <button class="btn btn-primary next">next</button>
+            </div>
+          </fieldset>
+
+          <fieldset data-step="3">
+            <legend>3. Form</legend>
+            <div class="control-group">
+              <label class="control-label" for="inputTime">Time</label>
+              <div class="controls">
+                <div class="input-append date datepicker only-time"  >
+                  <input name="time" value="12:00" type="text" id="inputTime" placeholder="Time">
+                </div>
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label" for="inputEmail">E-Mail</label>
+              <div class="controls">
+                <input type="text" id="inputEmail" name="email" placeholder="E-Mail Adresse">
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label" for="inputDatum">Date</label>
+              <div class="controls">
+                <div class="input-append date datepicker only-date"  >
+                  <input name="date" value="03.07.2013" type="text" id="inputDate" placeholder="Date">
+                </div>
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label" for="inputPlace">Lokal</label>
+              <div class="controls">
+                <input type="text" id="inputPlace" name="locale" placeholder="Lokal">
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label" for="inputName">Name</label>
+              <div class="controls">
+                <input type="text" id="inputName" name="name" placeholder="Name">
+              </div>
+            </div>
+            <div class="form-actions">
+              <button class="previews btn">previews</button>
+              <button class="btn btn-primary next">next</button>
+            </div>
+          </fieldset>
+
+          <fieldset data-step="4">
+            <legend>4. Form</legend>
+            <div class="control-group">
+              <label class="control-label" for="inputPlace">Lokal</label>
+              <div class="controls">
+                <input type="text" id="inputPlace" name="locale" placeholder="Lokal">
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label" for="inputTime">Time</label>
+              <div class="controls">
+                <div class="input-append date datepicker only-time"  >
+                  <input name="time" value="12:00" type="text" id="inputTime" placeholder="Time">
+                </div>
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label" for="inputDatum">Date</label>
+              <div class="controls">
+                <div class="input-append date datepicker only-date"  >
+                  <input name="date" value="03.07.2013" type="text" id="inputDate" placeholder="Date">
+                </div>
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label" for="inputName">Name</label>
+              <div class="controls">
+                <input type="text" id="inputName" name="name" placeholder="Name">
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label" for="inputEmail">E-Mail</label>
+              <div class="controls">
+                <input type="text" id="inputEmail" name="email" placeholder="E-Mail Adresse">
+              </div>
+            </div>
+            <div class="form-actions">
+              <button class="previews btn">previews</button>
+              <button class="btn btn-primary next">next</button>
+            </div>
+          </fieldset>
+
+          <fieldset data-step="5">
+            <legend>5. Form</legend>
+            <div class="control-group">
+              <label class="control-label" for="inputEmail">E-Mail</label>
+              <div class="controls">
+                <input type="text" id="inputEmail" name="email" placeholder="E-Mail Adresse">
+              </div>
+            </div>
+            <div class="form-actions">
+              <button class="previews btn">previews</button>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+          </fieldset>
+
+        </form>
+    </div>
+  </div>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+  <script type="text/javascript" src="./js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="./js/bootstrap.wizard.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('.wizard').wizard();
+    });
+  </script>
+</body>
+</html>
