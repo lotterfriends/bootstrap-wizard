@@ -32,10 +32,11 @@
 			var $fieldset = $(this).closest('fieldset'),
 				validation = $fieldset.data('validation');
 			if (validation) {
-				if (validation($fieldset)) {
+				validation($fieldset,function(valid) {
+					if (!valid) return;
 					$nextFieldset = $fieldset.next('fieldset');
 					_this.showFieldset($fieldset, $nextFieldset);
-				}
+				});
 			} else  {
 				$nextFieldset = $fieldset.next('fieldset');
 				_this.showFieldset($fieldset, $nextFieldset);

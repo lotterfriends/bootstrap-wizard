@@ -52,12 +52,12 @@ $('.wizard .breadcrumb li').on('deactivate');
 ## Validation
 You can bind step validation functions via the Data-Attribute to fieldsets.
 ```javascript
-$('fieldset#id1').data('validation', function($fieldset) {
+$('fieldset#id1').data('validation', function($fieldset,callback) {
   var $field = $fieldset.find('input:first');
   // Valid
-  if ($field.val() != "") return true;
+  if ($field.val() != "") return callback(true);
   // Not Valid
-  return false;
+  return callback(false);
 });
 ```
 

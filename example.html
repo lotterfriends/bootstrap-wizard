@@ -54,9 +54,9 @@
               </div>
             </div>
             <div class="control-group">
-              <label class="control-label" for="inputPlace">Lokal</label>
+              <label class="control-label" for="inputPlace">Local</label>
               <div class="controls">
-                <input type="text" id="inputPlace" name="locale" placeholder="Lokal">
+                <input type="text" id="inputPlace" name="locale" placeholder="Local">
               </div>
             </div>
             <div class="form-actions">
@@ -96,9 +96,9 @@
               </div>
             </div>
             <div class="control-group">
-              <label class="control-label" for="inputPlace">Lokal</label>
+              <label class="control-label" for="inputPlace">Local</label>
               <div class="controls">
-                <input type="text" id="inputPlace" name="locale" placeholder="Lokal">
+                <input type="text" id="inputPlace" name="locale" placeholder="Local">
               </div>
             </div>
             <div class="form-actions">
@@ -132,9 +132,9 @@
               </div>
             </div>
             <div class="control-group">
-              <label class="control-label" for="inputPlace">Lokal</label>
+              <label class="control-label" for="inputPlace">Local</label>
               <div class="controls">
-                <input type="text" id="inputPlace" name="locale" placeholder="Lokal">
+                <input type="text" id="inputPlace" name="locale" placeholder="Local">
               </div>
             </div>
             <div class="control-group">
@@ -152,9 +152,9 @@
           <fieldset>
             <legend>4. Form</legend>
             <div class="control-group">
-              <label class="control-label" for="inputPlace">Lokal</label>
+              <label class="control-label" for="inputPlace">Local</label>
               <div class="controls">
-                <input type="text" id="inputPlace" name="locale" placeholder="Lokal">
+                <input type="text" id="inputPlace" name="locale" placeholder="Local">
               </div>
             </div>
             <div class="control-group">
@@ -213,8 +213,8 @@
   <script type="text/javascript" src="./js/bootstrap.wizard.js"></script>
   <script type="text/javascript">
     $(document).ready(function() {
-      $('fieldset:first').data('validation', isNameValid);
-      function isNameValid($fieldset) {
+      
+      $('fieldset:first').data('validation',function($fieldset, callback) {
         var $name = $('input[name=name]', $fieldset);
         if ($.trim($name.val()) == "" || $.trim($name.val()).length < 4 || $.trim($name.val()).length > 30) {
           if ($name.closest('.control-group').hasClass('error')) return false;
@@ -222,13 +222,15 @@
           var $appendTo = $name.parent();
           if ($appendTo.is('.input-append')) $appendTo = $appendTo.parent();
           $('<span class="help-inline">The name is to short. At least 4 characters, maximum 30.</span>').appendTo($appendTo);
-          return false;
+          return callback(false);
         }
         $name.closest('.control-group').removeClass('error');
         $('.help-inline', $name.parent()).remove();
-        return true;
-      }
+        callback(true);
+      });
+      
       $('.wizard').wizard();
+
     });
   </script>
 </body>
