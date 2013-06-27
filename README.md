@@ -38,6 +38,22 @@ $(document).ready(function() {
 });
 ```
 
+Options
+------------
+- defaultTitle : Text in the Breadcrumb if no Legend-Tag is set (Default: "Step")
+- nextClass: CSS-Class for the nextbutton (Default: "next")
+- prevClass: CSS-Class for the previewsbutton (Default : "previews")
+- jumperClass: CSS-Class for the Link in the Breadcrumb (Default: "jump")
+
+Events
+------------
+```javascript
+$('.wizard fieldset').on('show');
+$('.wizard fieldset').on('hide');
+$('.wizard .breadcrumb li').on('activate');
+$('.wizard .breadcrumb li').on('deactivate');
+```
+
 
 Preview
 ---------
