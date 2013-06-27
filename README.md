@@ -16,13 +16,13 @@ Simple Wizard for Twitter Bootstrap
   <fieldset>
     <legend>2. Step</legend>
     Content Step 2
-    <button class="previews">previews</button>
+    <button class="previous">previews</button>
     <button class="next">next</button>
   </fieldset>
   <fieldset>
     <legend>3. Step</legend>
     Content Step 3
-    <button class="previews">previews</button>
+    <button class="previous">previews</button>
     <button>save</button>
   </fieldset>
 </div>
@@ -37,9 +37,9 @@ $(document).ready(function() {
 ```
 
 ## Options
-- defaultTitle : Text in the Breadcrumb if no Legend-Tag is set (Default: "Step")
-- nextClass: CSS-Class for the nextbutton (Default: "next")
-- prevClass: CSS-Class for the previewsbutton (Default : "previews")
+- defaultTitle : Label in the Breadcrumb, if no Legend-Tag is set (Default: "Step")
+- nextClass: CSS-Class for the Nextbutton (Default: "next")
+- prevClass: CSS-Class for the previous button (Default : "previous")
 - jumperClass: CSS-Class for the Link in the Breadcrumb (Default: "jump")
 
 ## Events
