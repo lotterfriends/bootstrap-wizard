@@ -36,11 +36,11 @@ $(document).ready(function() {
 ```
 
 ## Options
-- defaultTitle : Label in the Breadcrumb, if no Legend-Tag is set (Default: "Step")
-- nextClass: CSS-Class for the nextbutton (Default: "next")
-- prevClass: CSS-Class for the previousbutton (Default : "previous")
-- jumperClass: CSS-Class for the link in the breadcrumb (Default: "jump")
-- primaryButtonClass: CSS-Class for the primarybutton. Triggered by pressing the Enter Key. (Default: "btn-primary")
+- defaultTitle : Label in the Breadcrumb, if no Legend-Tag is set (default: 'Step')
+- nextClass: CSS-Class for the nextbutton (default: 'next')
+- prevClass: CSS-Class for the previousbutton (default : 'previous')
+- jumperClass: CSS-Class for the link in the breadcrumb (default: 'jump')
+- primaryButtonClass: CSS-Class for the primarybutton. Triggered by pressing the Enter Key. (default: 'btn-primary')
 
 ## Events
 ```javascript
