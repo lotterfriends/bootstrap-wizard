@@ -1,6 +1,6 @@
 # bootstrap-wizard
 
-Simple Wizard for Twitter Bootstrap
+Simple wizard for Twitter Bootstrap
 
 
 ## Minimal Markdown
@@ -36,7 +36,7 @@ $(document).ready(function() {
 ```
 
 ## Options
-- defaultTitle : Label in the Breadcrumb, if no Legend-Tag is set (default: 'Step')
+- defaultTitle : Label in the breadcrumb, if no Legend-Tag is set (default: 'Step')
 - nextClass: CSS-Class for the nextbutton (default: 'next')
 - prevClass: CSS-Class for the previousbutton (default : 'previous')
 - jumperClass: CSS-Class for the link in the breadcrumb (default: 'jump')
