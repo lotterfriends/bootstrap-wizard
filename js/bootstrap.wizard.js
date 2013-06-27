@@ -5,7 +5,7 @@
 		var settings = $.extend({
 			defaultTitle : 'Step',
 			nextClass: 'next',
-			prevClass: 'previews',
+			prevClass: 'previous',
 			jumperClass: 'jump'
 		}, options );
 
