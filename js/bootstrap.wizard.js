@@ -6,7 +6,8 @@
 			defaultTitle : 'Step',
 			nextClass: 'next',
 			prevClass: 'previous',
-			jumperClass: 'jump'
+			jumperClass: 'jump',
+			primaryButtonClass : 'btn-primary'
 		}, options );
 
 		this.each(function() {
@@ -18,12 +19,14 @@
 	function Wizard(wizard, settings) {
 		this.settings = settings;
 		this.$wizard = $(wizard);
+		this.$fieldsets = this.$wizard.find('fieldset');
 		this.createBreadcrumb();
 		this.initEvents();
 	}
 
 	Wizard.prototype.initEvents = function() {
-		var _this = this;
+		var _this = this,
+			keyCodeEnter = 13;
 		this.$wizard.on('click', '.' + this.settings.nextClass, function(e) {
 			e.stopPropagation();
 			var $fieldset = $(this).closest('fieldset'),
@@ -55,13 +58,18 @@
 			return false;
 		});
 
+		this.$fieldsets.on('keydown',':input,.' + _this.settings.primaryButtonClass, function(e) {
+        	if (e.which != keyCodeEnter) return true;
+        	e.stopPropagation();
+        	$(this).closest('fieldset').find('.' + _this.settings.primaryButtonClass).trigger('click');
+        	return false;
+      	});
 	};
 
 	Wizard.prototype.createBreadcrumb = function() {
-		var _this = this, 
-		$fieldsets = this.$wizard.find('fieldset');
+		var _this = this;
 		this.$breadcrumb = $(document.createElement('ul')).addClass('breadcrumb');
-		$fieldsets.each(function(i) {
+		this.$fieldsets.each(function(i) {
 			var $fieldset = $(this);
 			var $li =  $(document.createElement('li'));
 			if (i == 0) $li.addClass('active');
@@ -69,21 +77,21 @@
 			if ($fieldset.find('legend').length) $value.text($fieldset.find('legend').text());
 			else $value.text((i + 1) + '. ' + _this.settings.defaultTitle);
 			$li.append($value);
-			if (i < $fieldsets.length - 1 ) {
+			if (i < _this.$fieldsets.length - 1 ) {
 				var $divider =  $(document.createElement('span')).addClass('divider');
 				$divider.append($(document.createElement('i')).addClass('icon-play'));
 				$li.append($divider);
 			}
 			_this.$breadcrumb.append($li);				
 		});
-		$fieldsets.hide();
-		this.$breadcrumb.insertBefore($fieldsets.first().show());
+		this.$fieldsets.hide();
+		this.$breadcrumb.insertBefore(this.$fieldsets.first().show());
 	};
 
 	Wizard.prototype.showFieldset = function($oldFieldset, $newFieldset) {
 		var _this = this;
 		$oldFieldset.hide().trigger('hide');
-		$newFieldset.show().trigger('show');		
+		$newFieldset.show().trigger('show').find('input:visible:first').focus();		
 		$('li.active', _this.$breadcrumb).removeClass('active').trigger('deactivate');
 		$('li', _this.$breadcrumb).eq($('fieldset').index($newFieldset)).addClass('active').trigger('activate');
 		$('li:not(.active)', _this.$breadcrumb).each(function() {

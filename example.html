@@ -214,7 +214,6 @@
   <script type="text/javascript">
     $(document).ready(function() {
       $('fieldset:first').data('validation', isNameValid);
-
       function isNameValid($fieldset) {
         var $name = $('input[name=name]', $fieldset);
         if ($.trim($name.val()) == "" || $.trim($name.val()).length < 4 || $.trim($name.val()).length > 30) {
@@ -229,7 +228,6 @@
         $('.help-inline', $name.parent()).remove();
         return true;
       }
-
       $('.wizard').wizard();
     });
   </script>

@@ -1,5 +1,4 @@
 # bootstrap-wizard
-================
 
 Simple Wizard for Twitter Bootstrap
 
@@ -39,8 +38,9 @@ $(document).ready(function() {
 ## Options
 - defaultTitle : Label in the Breadcrumb, if no Legend-Tag is set (Default: "Step")
 - nextClass: CSS-Class for the Nextbutton (Default: "next")
-- prevClass: CSS-Class for the previous button (Default : "previous")
+- prevClass: CSS-Class for the Previousbutton (Default : "previous")
 - jumperClass: CSS-Class for the Link in the Breadcrumb (Default: "jump")
+- primaryButtonClass: CSS-Class for the Primarybutton. Triggered by pressing the Enter Key. (Default: "btn-primary")
 
 ## Events
 ```javascript
