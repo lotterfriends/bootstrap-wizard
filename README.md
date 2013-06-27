@@ -54,7 +54,9 @@ You can bind Step Validation Functions via the Data-Attribute to fieldsets.
 ```javascript
 $('fieldset#id1').data('validation', function($fieldset) {
   var $field = $fieldset.find('input:first');
+  // Valid
   if ($field.val() != "") return true;
+  // Not Valid
   return false;
 });
 ```
