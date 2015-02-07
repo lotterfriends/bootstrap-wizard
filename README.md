@@ -37,10 +37,10 @@ $(document).ready(function() {
 
 ## Options
 - defaultTitle : Label in the breadcrumb, if no Legend-Tag is set (default: 'Step')
-- nextClass: CSS-Class for the nextbutton (default: 'next')
-- prevClass: CSS-Class for the previousbutton (default : 'previous')
+- nextClass: CSS-Class for the next button (default: 'next')
+- prevClass: CSS-Class for the previous button (default : 'previous')
 - jumperClass: CSS-Class for the link in the breadcrumb (default: 'jump')
-- primaryButtonClass: CSS-Class for the primarybutton. Triggered by pressing the Enter Key. (default: 'btn-primary')
+- primaryButtonClass: CSS-Class for the primary button. Triggered by pressing the Enter Key. (default: 'btn-primary')
 
 ## Events
 ```javascript
@@ -50,7 +50,7 @@ $('.wizard .breadcrumb li').on('activate');
 $('.wizard .breadcrumb li').on('deactivate');
 ```
 ## Validation
-You can bind step validation functions via the Data-Attribute to fieldsets.
+You can bind step validation functions via the Data-Attribute to the fieldsets.
 ```javascript
 $('fieldset#id1').data('validation', function($fieldset,callback) {
   var $field = $fieldset.find('input:first');
