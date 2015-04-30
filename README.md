@@ -1,6 +1,6 @@
 # bootstrap-wizard
 
-Simple wizard for Twitter Bootstrap
+Simple wizard for Twitter Bootstrap 2
 
 
 ## Minimal Markdown
